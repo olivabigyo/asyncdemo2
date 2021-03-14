@@ -1,0 +1,89 @@
+@charset "UTF-8";
+:root {
+    --body-bg-color: black;
+    --box-bg-color: rgb(71, 71, 71);
+    --h2-color: #f6bd66;
+    --button-bg-color: #f6bd66;
+    --breakpoint-xs: 0;
+    --breakpoint-sm: 576px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 992px;
+    --breakpoint-xl: 1200px;
+    --font-family-sans-serif: sans-serif;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--body-bg-color);
+    font-family: var(--font-family-sans-serif);
+}
+
+.container {
+    margin: 100px auto;
+}
+
+.boxes {
+    background-color: var(--box-bg-color);
+    border-radius: 10px;
+    padding: 1rem;
+    max-height: 650px;
+}
+
+h2 {
+    color: var(--h2-color);
+    margin-bottom: 1rem;
+}
+
+#chatbox #messages {
+    overflow-y: scroll;
+    max-height: 80%;
+}
+
+#chatbox .message {
+    padding: 0.5rem;
+    margin-right: 2px;
+    border-radius: 4px;
+    background-color: #f0f0f0;
+    margin-bottom: 5px;
+}
+
+#chatbox input {
+    padding: 0.6rem;
+    margin-bottom: 2px;
+    border: none;
+}
+
+#chatbox input:focus {
+    outline: none;
+}
+
+#chatbox ::placeholder {
+    color: white;
+}
+
+#chatbox .mybtn {
+    padding: 0.6rem 0.8rem;
+    background-color: var(--button-bg-color);
+    color: var(--body-bg-color);
+    border: none;
+}
+
+#chatbox .mybtn:hover {
+    background-color: #eea942;
+}
+
+#logs {
+    overflow-y: scroll;
+    max-height: 90%;
+    background-color: #f0f0f0;
+    padding: 0.5rem;
+}
+
+#logbox p {
+    margin: 0;
+    font-family: monospace;
+    font-size: 0.7rem;
+}
