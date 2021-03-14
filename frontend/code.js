@@ -22,3 +22,30 @@ function log(entry) {
 }
 
 log('Hello');
+
+
+const exampleResponseToGetMessages = {
+    "ok": true,
+    "messages": [
+        { "id": "1", "name": "Kata", "content": "Hallo" },
+        { "id": "2", "name": "Kata", "content": "Ist jemand da?" },
+        { "id": "3", "name": "Anonym", "content": "Nope" },
+        { "id": "4", "name": "Kata", "content": "Oh, schade." },
+        { "id": "5", "name": "Anonym", "content": "Haha, war nur ein Scherz." },
+        { "id": "5", "name": "Anonym", "content": "Ich werde jetzt eine lange message schreiben damit es mehrere Zeilen braucht" },
+        { "id": "6", "name": "Kata", "content": "<b>Thanks</b>" },
+    ]
+};
+
+function showMessages(messages) {
+    const messageBox = document.getElementById('messages');
+    messageBox.innerHTML = '';
+    for (const message of messages) {
+        const messageDiv = document.createElement('div');
+        messageDiv.classList.add('message');
+        messageDiv.innerText = message.name + ': ' + message.content;
+        messageBox.appendChild(messageDiv);
+    }
+}
+
+showMessages(exampleResponseToGetMessages.messages);
