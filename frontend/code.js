@@ -52,19 +52,28 @@ function showMessages(messages) {
 
 // showMessages(exampleResponseToGetMessages.messages);
 
-const apiEndpoint = 'http://localhost/asyncdemo2/backend/serverrrrrrrrr.php';
+const apiEndpoint = 'http://localhost/asyncdemo2/backend/server.php';
 
 async function getMessages() {
     log('Sending getMessages request...');
     try {
         const response = await fetch(apiEndpoint);
 
-        console.log(response.ok);
-        console.log(response.status);
+        if (!response.ok) {
+            log(`Fetch returned with: ${response.status} (${response.statusText})`);
+            return;
+        }
 
         const data = await response.json();
+
+        if (!data.messages) {
+            log('Response contains no messages field');
+            return;
+        }
+
         showMessages(data.messages);
         log('Success: getMessages.');
+
     } catch (exception) {
         log('Error: ' + exception);
     }
