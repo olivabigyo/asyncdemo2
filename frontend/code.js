@@ -50,4 +50,19 @@ function showMessages(messages) {
     }
 }
 
-showMessages(exampleResponseToGetMessages.messages);
+// showMessages(exampleResponseToGetMessages.messages);
+
+const apiEndpoint = 'http://localhost/asyncdemo2/backend/server.php';
+
+async function getMessages() {
+    log('Sending getMessages request...');
+    const response = await fetch(apiEndpoint);
+    const data = await response.json();
+    showMessages(data.messages);
+    log('Success: getMessages.');
+}
+
+getMessages();
+
+// What we expect here?
+// What went wrong?
