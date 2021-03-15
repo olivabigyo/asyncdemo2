@@ -34,8 +34,8 @@ const exampleResponseToGetMessages = {
         { "id": "5", "name": "Anonym", "content": "Haha, war nur ein Scherz." },
         { "id": "6", "name": "Anonym", "content": "Ich werde jetzt eine lange message schreiben damit es mehrere Zeilen braucht" },
         { "id": "7", "name": "Kata", "content": "<b>Thanks</b>" },
-        { "id": "8", "name": "Kata", "content": "<script>alert('I am annoying!')</script>"},
-        { "id": "9", "name": "Kata", "content": "<img src='x' onerror='alert(\"You are attacked!\")'>"},
+        { "id": "8", "name": "Kata", "content": "<script>alert('I am annoying!')</script>" },
+        { "id": "9", "name": "Kata", "content": "<img src='x' onerror='alert(\"You are attacked!\")'>" },
     ]
 };
 
@@ -52,14 +52,22 @@ function showMessages(messages) {
 
 // showMessages(exampleResponseToGetMessages.messages);
 
-const apiEndpoint = 'http://localhost/asyncdemo2/backend/server.php';
+const apiEndpoint = 'http://localhost/asyncdemo2/backend/serverrrrrrrrr.php';
 
 async function getMessages() {
     log('Sending getMessages request...');
-    const response = await fetch(apiEndpoint);
-    const data = await response.json();
-    showMessages(data.messages);
-    log('Success: getMessages.');
+    try {
+        const response = await fetch(apiEndpoint);
+
+        console.log(response.ok);
+        console.log(response.status);
+
+        const data = await response.json();
+        showMessages(data.messages);
+        log('Success: getMessages.');
+    } catch (exception) {
+        log('Error: ' + exception);
+    }
 }
 
 getMessages();
